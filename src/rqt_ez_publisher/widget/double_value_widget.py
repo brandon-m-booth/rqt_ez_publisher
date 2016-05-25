@@ -7,7 +7,7 @@ class DoubleValueWidget(value_widget.ValueWidget):
 
     LCD_HEIGHT = 35
     DEFAULT_MAX_VALUE = 1.0
-    DEFAULT_MIN_VALUE = -1.0
+    DEFAULT_MIN_VALUE = 0.0
 
     def __init__(self, topic_name, attributes, array_index, publisher, parent,
                  label_text=None):
@@ -47,14 +47,14 @@ class DoubleValueWidget(value_widget.ValueWidget):
         self._lcd = QtGui.QLCDNumber()
         self._lcd.setMaximumHeight(self.LCD_HEIGHT)
         self._slider.setValue(50)
-        zero_button = QtGui.QPushButton('reset')
-        zero_button.clicked.connect(
-            lambda x: self._slider.setValue(self.value_to_slider(0.0)))
+        #zero_button = QtGui.QPushButton('reset')
+        #zero_button.clicked.connect(
+        #    lambda x: self._slider.setValue(self.value_to_slider(0.0)))
         self._horizontal_layout.addWidget(self._min_spin_box)
         self._horizontal_layout.addWidget(self._slider)
         self._horizontal_layout.addWidget(self._max_spin_box)
         self._horizontal_layout.addWidget(self._lcd)
-        self._horizontal_layout.addWidget(zero_button)
+        #self._horizontal_layout.addWidget(zero_button)
 
         self.setLayout(self._horizontal_layout)
 

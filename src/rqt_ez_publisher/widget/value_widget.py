@@ -17,47 +17,48 @@ class ValueWidget(base_widget.BaseWidget):
             self._topic_label = QtGui.QLabel(self._text)
         else:
             self._topic_label = QtGui.QLabel(label_text)
-        self.close_button = QtGui.QPushButton()
-        self.close_button.setMaximumWidth(30)
-        self.close_button.setIcon(
-            self.style().standardIcon(QtGui.QStyle.SP_TitleBarCloseButton))
-        self.up_button = QtGui.QPushButton()
-        self.up_button.setIcon(
-            self.style().standardIcon(QtGui.QStyle.SP_ArrowUp))
-        self.up_button.setMaximumWidth(30)
-        self.down_button = QtGui.QPushButton()
-        self.down_button.setMaximumWidth(30)
-        self.down_button.setIcon(
-            self.style().standardIcon(QtGui.QStyle.SP_ArrowDown))
-        repeat_label = QtGui.QLabel('repeat')
-        self._repeat_box = QtGui.QCheckBox()
-        self._repeat_box.stateChanged.connect(self.repeat_changed)
-        self._repeat_box.setChecked(publisher.is_repeating())
+        #self.close_button = QtGui.QPushButton()
+        #self.close_button.setMaximumWidth(30)
+        #self.close_button.setIcon(
+        #    self.style().standardIcon(QtGui.QStyle.SP_TitleBarCloseButton))
+        #self.up_button = QtGui.QPushButton()
+        #self.up_button.setIcon(
+        #    self.style().standardIcon(QtGui.QStyle.SP_ArrowUp))
+        #self.up_button.setMaximumWidth(30)
+        #self.down_button = QtGui.QPushButton()
+        #self.down_button.setMaximumWidth(30)
+        #self.down_button.setIcon(
+        #    self.style().standardIcon(QtGui.QStyle.SP_ArrowDown))
+        #repeat_label = QtGui.QLabel('repeat')
+        #self._repeat_box = QtGui.QCheckBox()
+        #self._repeat_box.stateChanged.connect(self.repeat_changed)
+        #self._repeat_box.setChecked(publisher.is_repeating())
         self._horizontal_layout.addWidget(self._topic_label)
-        self._horizontal_layout.addWidget(self.close_button)
-        self._horizontal_layout.addWidget(self.up_button)
-        self._horizontal_layout.addWidget(self.down_button)
-        self._horizontal_layout.addWidget(repeat_label)
-        self._horizontal_layout.addWidget(self._repeat_box)
+        #self._horizontal_layout.addWidget(self.close_button)
+        #self._horizontal_layout.addWidget(self.up_button)
+        #self._horizontal_layout.addWidget(self.down_button)
+        #self._horizontal_layout.addWidget(repeat_label)
+        #self._horizontal_layout.addWidget(self._repeat_box)
         if self._array_index is not None:
             self.add_button = QtGui.QPushButton('+')
             self.add_button.setMaximumWidth(30)
             self._horizontal_layout.addWidget(self.add_button)
         else:
             self.add_button = None
-        self.close_button.clicked.connect(
-            lambda x: self._parent.close_slider(self))
-        self.up_button.clicked.connect(
-            lambda x: self._parent.move_up_widget(self))
-        self.down_button.clicked.connect(
-            lambda x: self._parent.move_down_widget(self))
+        #self.close_button.clicked.connect(
+        #    lambda x: self._parent.close_slider(self))
+        #self.up_button.clicked.connect(
+        #    lambda x: self._parent.move_up_widget(self))
+        #self.down_button.clicked.connect(
+        #    lambda x: self._parent.move_down_widget(self))
         self.setup_ui(self._text)
 
     def repeat_changed(self, state):
         self.set_is_repeat(state == 2)
 
     def update(self):
-        self._repeat_box.setChecked(self.is_repeat())
+        #self._repeat_box.setChecked(self.is_repeat())
+        pass
 
     def get_text(self):
         return self._text

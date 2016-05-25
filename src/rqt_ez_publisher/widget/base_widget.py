@@ -18,7 +18,7 @@ class BaseWidget(QtGui.QWidget):
         pass
 
     def is_repeat(self):
-        return self._publisher.is_repeating()
+        return True #self._publisher.is_repeating()
 
     def set_is_repeat(self, repeat_on):
         if repeat_on:

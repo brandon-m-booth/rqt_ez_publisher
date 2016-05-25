@@ -74,9 +74,11 @@ class EzPublisherPlugin(Plugin):
         for slider in self._widget.get_sliders():
             r = instance_settings.value(slider.get_text() + '_range')
             slider.set_range(r)
-            is_repeat = instance_settings.value(
-                slider.get_text() + '_is_repeat')
-            slider.set_is_repeat(is_repeat == 'true')
+            is_repeat = True
+            #is_repeat = instance_settings.value(
+            #    slider.get_text() + '_is_repeat')
+            slider.set_is_repeat(True)
+            #slider.set_is_repeat(is_repeat == 'true')
         interval = instance_settings.value('publish_interval')
         if interval:
             publisher.TopicPublisherWithTimer.publish_interval = int(interval)
@@ -90,7 +92,8 @@ class EzPublisherPlugin(Plugin):
                 slider.set_range(
                     [slider_setting['min'], slider_setting['max']])
 
-                slider.set_is_repeat(slider_setting['is_repeat'])
+                slider.set_is_repeat(True)
+                #slider.set_is_repeat(slider_setting['is_repeat'])
             except KeyError as e:
                 pass
         publisher.TopicPublisherWithTimer.publish_interval = (
