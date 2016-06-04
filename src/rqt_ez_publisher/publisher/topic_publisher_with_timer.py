@@ -1,5 +1,5 @@
 import topic_fill_header_publisher
-from python_qt_binding import QtCore
+from PyQt5 import QtCore
 
 DEFAULT_PUBLISH_INTERVAL = 100
 

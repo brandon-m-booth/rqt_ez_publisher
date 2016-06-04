@@ -1,7 +1,7 @@
-from python_qt_binding import QtGui
+from PyQt5 import QtWidgets
 
 
-class BaseWidget(QtGui.QWidget):
+class BaseWidget(QtWidgets.QWidget):
 
     def __init__(self, topic_name, publisher, parent=None):
         super(BaseWidget, self).__init__(parent=None)
